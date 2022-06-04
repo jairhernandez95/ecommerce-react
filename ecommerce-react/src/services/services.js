@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = ''
+const baseURL = 'https://rickandmortyapi.com/api/character'
 
 const getData = async (name = '') => {
   const setName = name ? `/name/${name}` : '/all'
