@@ -1,6 +1,9 @@
+import Products from '../components/Products'
 function App () {
   return (
-    <p>Hello</p>
+    <>
+      <Products />
+    </>
   )
 }
 
