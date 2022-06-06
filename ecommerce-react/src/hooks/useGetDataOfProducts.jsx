@@ -2,7 +2,7 @@ import { getData } from '../services/getProducts'
 import { useEffect, useState } from 'react'
 
 const useGetData = (id = '') => {
-  const [listProducts, setListProducts] = useState(id ? {} : [])
+  const [listProducts, setListProducts] = useState([])
   const [nextItems, setNextItems] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -21,9 +21,7 @@ const useGetData = (id = '') => {
       }
     }
     setData()
-  }, [])
-
-  console.log(nextItems)
+  }, [id])
 
   return { listProducts, loading, error, nextItems }
 }

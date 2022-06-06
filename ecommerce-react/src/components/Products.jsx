@@ -1,8 +1,10 @@
 import useGetData from '../hooks/useGetDataOfProducts'
 import { Link } from 'react-router-dom'
+import useAppContext from '../hooks/useAppContext'
 
 const Products = () => {
-  const { listProducts, loading, error } = useGetData()
+  const { query } = useAppContext
+  const { listProducts, loading, error } = useGetData(query)
   if (error) return <p>{error}</p>
   if (loading) return <p>...loading</p>
   return (

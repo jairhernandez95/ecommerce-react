@@ -1,14 +1,14 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import useAppContext from '../hooks/useAppContext'
 
 const NavBar = () => {
   const searchRef = useRef()
-
+  const { query, setQuery } = useAppContext()
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(searchRef.current.value)
+    setQuery(searchRef.current.value)
   }
-
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top'>
       <div className='container'>
