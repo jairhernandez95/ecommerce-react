@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Routes from './routes'
 import { BrowserRouter } from 'react-router-dom'
 import SearchBar from './components/SearchBar'
+import './styles/main.css'
 
 const root = document.getElementById('root')
 const container = createRoot(root)
