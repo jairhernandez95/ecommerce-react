@@ -1,5 +1,6 @@
 import Products from '../components/Products'
 import ButtonLoadMore from '../components/ButtonLoadMore'
+import '../styles/App.css'
 
 function App () {
   return (
