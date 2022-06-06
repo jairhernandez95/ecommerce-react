@@ -1,10 +1,9 @@
-import { Link, useParams } from 'react-router-dom'
-import useGetData from '../hooks/useGetData'
+import { Link } from 'react-router-dom'
+import useGetData from '../hooks/useGetDataOfProduct'
 
 const Product = () => {
-  const { character = '' } = useParams()
-  const { listProducts, loading, error } = useGetData(character)
-  console.log(listProducts)
+  const { listProducts, loading, error } = useGetData(((window.location.href.slice(window.location.href.length - 2)).match((/(\d+)/)))[0].toString())
+  console.log(((window.location.href.slice(window.location.href.length - 2)).match((/(\d+)/)))[0].toString())
   if (error) return <p>Error</p>
   if (loading) return <p>...Loading</p>
 
@@ -12,6 +11,7 @@ const Product = () => {
     <section>
       <p>Product</p>
       <p>{listProducts.name}</p>
+      <img src={listProducts.image} />
       <Link to='/'>Home</Link>
     </section>
   )
