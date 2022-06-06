@@ -4,8 +4,10 @@ import ButtonLoadMore from '../components/ButtonLoadMore'
 function App () {
   return (
     <>
-      <Products />
-      <ButtonLoadMore />
+      <div className='App container'>
+        <Products />
+        <ButtonLoadMore />
+      </div>
     </>
   )
 }

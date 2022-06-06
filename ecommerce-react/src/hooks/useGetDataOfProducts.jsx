@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 const useGetData = (id = '') => {
   const [listProducts, setListProducts] = useState(id ? {} : [])
-  const [nextItems, setNextItems] = useState()
+  const [nextItems, setNextItems] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -13,6 +13,7 @@ const useGetData = (id = '') => {
         const { data } = await getData(id)
         setListProducts(data.results)
         setNextItems(data.info.next)
+        console.log(nextItems)
       } catch ({ message }) {
         setError(message)
       } finally {
@@ -21,6 +22,8 @@ const useGetData = (id = '') => {
     }
     setData()
   }, [])
+
+  console.log(nextItems)
 
   return { listProducts, loading, error, nextItems }
 }

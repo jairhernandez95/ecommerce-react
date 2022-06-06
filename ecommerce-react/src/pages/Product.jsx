@@ -8,7 +8,7 @@ const Product = () => {
   if (loading) return <p>...Loading</p>
 
   return (
-    <section>
+    <section className='container'>
       <p>Product</p>
       <p>{listProducts.name}</p>
       <img src={listProducts.image} />

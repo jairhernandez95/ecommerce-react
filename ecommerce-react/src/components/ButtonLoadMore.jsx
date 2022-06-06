@@ -1,14 +1,10 @@
-import { getData } from '../services/getProducts'
-import Products from './Products'
-
+import useGetData from '../hooks/useGetDataOfProducts'
+const { nextItems } = useGetData
 const ButtonLoadMore = () => {
-  const { listProducts, loading, error, nextItems } = getData()
-  if (loading) return <p>...loading</p>
-  if (error) return <p>{error}</p>
   return (
-    <>
-      <button>More characters...</button>
-    </>
+    <div className='container d-flex justify-content-center'>
+      <button className='btn btn-primary center'>More characters...</button>
+    </div>
   )
 }
 
