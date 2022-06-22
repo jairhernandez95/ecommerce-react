@@ -16,6 +16,7 @@ const Product = () => {
     <section className='container py-5'>
       <img src={listProducts.image} />
       <p>Name: {listProducts.product_name}</p>
+      <button type='button' className='btn btn-primary'>Comprar</button>
       <button type='button' className='btn btn-warning'>
         <Link to='/'>Home</Link>
       </button>
