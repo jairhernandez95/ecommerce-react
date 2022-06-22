@@ -1,5 +1,4 @@
 import Products from '../components/Products'
-import ButtonLoadMore from '../components/ButtonLoadMore'
 import '../styles/App.css'
 
 function App () {
@@ -7,7 +6,6 @@ function App () {
     <>
       <div className='App container'>
         <Products />
-        <ButtonLoadMore />
       </div>
     </>
   )

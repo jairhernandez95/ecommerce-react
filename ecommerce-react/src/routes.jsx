@@ -13,7 +13,7 @@ const Routes = () => {
       element: <App />
     },
     {
-      path: 'product/:name',
+      path: 'product/:_id',
       element: <Product />
     },
     {

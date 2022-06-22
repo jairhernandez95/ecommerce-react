@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Routes from './routes'
 import { BrowserRouter } from 'react-router-dom'
-import NavBar from './components/SearchBar'
-import { ContextProvider } from './context'
+import NavBar from './components/NavBar'
+import { ContextProvider } from './context/AppContext'
 
 const root = document.getElementById('root')
 const container = createRoot(root)

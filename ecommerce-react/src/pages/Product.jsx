@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
-import useGetData from '../hooks/useGetDataOfProduct'
+import useGetDataOfProduct from '../hooks/useGetDataOfProduct'
 
 const Product = () => {
-  const { listProducts, loading, error } = useGetData(((window.location.href.slice(window.location.href.length - 2)).match((/(\d+)/)))[0].toString())
-  console.log(((window.location.href.slice(window.location.href.length - 2)).match((/(\d+)/)))[0].toString())
+  const { listProducts, loading, error } = useGetDataOfProduct(window.location.href.slice(30))
   if (error) return <p>Error</p>
   if (loading) {
     return (
@@ -16,17 +15,7 @@ const Product = () => {
   return (
     <section className='container py-5'>
       <img src={listProducts.image} />
-      <p>Name: {listProducts.name}</p>
-      <p>Specie: {listProducts.species}</p>
-      <p>Gender: {listProducts.gender}</p>
-      <p>Status: {listProducts.status}</p>
-      <p>Location: {listProducts.location.name}</p>
-      <div>
-        <p>Episodes:</p>
-        <div>
-          {/* {listProducts.map(item, key)} */}
-        </div>
-      </div>
+      <p>Name: {listProducts.product_name}</p>
       <button type='button' className='btn btn-warning'>
         <Link to='/'>Home</Link>
       </button>

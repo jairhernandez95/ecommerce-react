@@ -1,4 +1,4 @@
-import useGetData from '../hooks/useGetDataOfProducts'
+import useGetData from '../hooks/useGetDataOfAllProducts'
 import { Link } from 'react-router-dom'
 import useAppContext from '../hooks/useAppContext'
 
@@ -9,22 +9,18 @@ const Products = () => {
   if (loading) return <p>...loading</p>
   return (
     <section className='row py-5 gy-4'>
-      {listProducts.map((item, key) => (
-        <div key={key} className='col-12 col-sm-6 col-md-6 col-lg-3 card align-items-stretch'>
-          <Link to={`/product/${item.id}`} className='col-sm'>
+      {listProducts.map((product, key) => (
+        <div key={key} className='col-12 col-sm-6 col-md-6 col-lg-3 card align-products-stretch'>
+          <Link to={`/product/${product._id}`} className='col-sm'>
             <article>
-              <img src={item.image} alt={item.name} className='card-img-top' />
+              <img src={product.image} alt={product.product_name} className='card-img-top' />
               <div className='card-body'>
-                <p className='card-title d-flex justify-content-center'>{item.name}</p>
+                <p className='card-title d-flex justify-content-center'>{product.product_name}</p>
+                <p>Price: {product.price}</p>
+                <p>Brand: {product.brand}</p>
               </div>
             </article>
           </Link>
-          <div className='card border-0' style={{ outline: 'none' }}>
-            <div className='card-body d-flex justify-content-between'>
-              <button type='button' className='btn btn-warning'>Edit</button>
-              <button type='button' className='btn btn-danger'>Delete</button>
-            </div>
-          </div>
         </div>
       ))}
     </section>

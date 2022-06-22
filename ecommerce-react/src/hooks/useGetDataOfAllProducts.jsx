@@ -1,9 +1,8 @@
-import { getData } from '../services/getProducts'
+import { getData } from '../services/getAllProducts'
 import { useEffect, useState } from 'react'
 
 const useGetData = (id = '') => {
   const [listProducts, setListProducts] = useState([])
-  const [nextItems, setNextItems] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -11,9 +10,7 @@ const useGetData = (id = '') => {
     const setData = async () => {
       try {
         const { data } = await getData(id)
-        setListProducts(data.results)
-        setNextItems(data.info.next)
-        console.log(nextItems)
+        setListProducts(data)
       } catch ({ message }) {
         setError(message)
       } finally {
@@ -22,8 +19,9 @@ const useGetData = (id = '') => {
     }
     setData()
   }, [id])
+  console.log(listProducts)
 
-  return { listProducts, loading, error, nextItems }
+  return { listProducts, loading, error }
 }
 
 export default useGetData
