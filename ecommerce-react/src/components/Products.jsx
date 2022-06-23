@@ -13,7 +13,7 @@ const Products = () => {
         <div key={key} className='col-12 col-sm-6 col-md-6 col-lg-3 card align-products-stretch'>
           <Link to={`/product/${product._id}`} className='col-sm'>
             <article>
-              <img src={product.image} alt={product.product_name} className='card-img-top' />
+              <img src={product.image} alt={product.product_name} className='card-img-top img-fluid' />
               <div className='card-body'>
                 <p className='card-title d-flex justify-content-center'>{product.product_name}</p>
                 <p>Price: {product.price}</p>

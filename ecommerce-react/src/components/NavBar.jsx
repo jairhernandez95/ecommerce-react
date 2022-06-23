@@ -1,14 +1,22 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useAppContext from '../hooks/useAppContext'
 
 const NavBar = () => {
   const searchRef = useRef()
-  const { query, setQuery } = useAppContext()
+  const navigate = useNavigate()
+  const { handleFilterProducts } = useAppContext()
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    setQuery(searchRef.current.value)
+    const trimValue = searchRef.current.value.trim()
+    if (trimValue !== '') {
+      handleFilterProducts(trimValue)
+      navigate('/products/search', { replace: true })
+      event.target.reset()
+    }
   }
+
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top'>
       <div className='container'>

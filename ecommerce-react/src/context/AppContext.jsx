@@ -2,11 +2,36 @@ import { createContext, useState } from 'react'
 
 const AppContext = createContext(null)
 
-const ContextProvider = ({ children }) => {
-  const [query, setQuery] = useState('')
+const AppProvider = ({ children }) => {
+  const [products, setProducts] = useState([])
+  const [filterProducts, setFilterProducts] = useState([])
+  const [sms, setSms] = useState({ type: '' })
+
+  const handleFilterProducts = (value) => {
+    const filtered = products.filter(product => {
+      return product.product_name.toLowerCase().match(value.toLowerCase())
+    })
+
+    if (filtered.length === 0) {
+      setFilterProducts([])
+      setSms({
+        type: 'error',
+        message: 'Search not found'
+      })
+    } else {
+      setFilterProducts(filtered)
+      setSms({
+        type: 'success',
+        message: 'Products found'
+      })
+    }
+  }
+
   const initialValue = {
-    query,
-    setQuery
+    setProducts,
+    handleFilterProducts,
+    filterProducts,
+    sms
   }
   return (
     <AppContext.Provider value={initialValue}>
@@ -15,4 +40,4 @@ const ContextProvider = ({ children }) => {
   )
 }
 
-export { AppContext, ContextProvider }
+export { AppContext, AppProvider }

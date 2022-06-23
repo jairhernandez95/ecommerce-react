@@ -1,31 +1,54 @@
 import { Navigate, useRoutes } from 'react-router-dom'
-import App from './pages/App'
-import Product from './pages/Product'
 
-const Routes = () => {
+// pages
+import App from './pages/App'
+import Login from './pages/Login'
+
+// components
+import Products from './components/Products'
+import Product from './components/Product'
+import Search from './components/Search'
+
+const Paths = () => {
   const element = useRoutes([
     {
       path: '/',
-      element: <Navigate to='/products' />
+      element: <Navigate to='/login' replace />
     },
     {
-      path: 'products',
-      element: <App />
+      path: '/login',
+      element: <Login />
     },
     {
-      path: 'product/:_id',
-      element: <Product />
+      path: '/products',
+      element: <App />,
+      children: [
+        {
+          element: <Products />,
+          index: true
+        },
+        {
+          path: 'product/:name',
+          element: <Product />
+        },
+        {
+          path: 'search',
+          element: <Search />
+        }
+
+      ]
     },
     {
       path: '/404',
-      element: <p>Page not found</p>
+      element: <p className='text-center'>Page not found</p>
     },
     {
       path: '*',
       element: <Navigate to='/404' replace />
     }
   ])
+
   return element
 }
 
-export default Routes
+export default Paths
