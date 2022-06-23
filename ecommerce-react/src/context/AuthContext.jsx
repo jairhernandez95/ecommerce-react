@@ -24,13 +24,13 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = window.localStorage.getItem('token')
     setInit(true)
-    console.log(isValidToken(token))
+    // console.log(isValidToken(token))
 
     try {
       if (token && isValidToken(token)) {
         setSession(token)
         setAuthed(true)
-        console.log('sesión activa')
+        // console.log('sesión activa')
       } else {
         console.log('no hay sesión')
         setAuthed(false)

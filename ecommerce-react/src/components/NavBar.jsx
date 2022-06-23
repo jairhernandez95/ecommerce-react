@@ -20,7 +20,7 @@ const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark sticky-top'>
       <div className='container'>
-        <a className='navbar-brand' href='#'>Logo</a>
+        <a className='navbar-brand' href='#'><img className='imageLogo' src='../src/assets/favicon.png' alt='' /></a>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#mainNavBar' aria-controls='mainNavBar' aria-expanded='false' aria-label='Toggle navigation'>
           <span className='navbar-toggler-icon' />
         </button>
@@ -31,7 +31,7 @@ const NavBar = () => {
             </li>
           </ul>
           <form className='d-flex' onSubmit={handleSubmit}>
-            <input ref={searchRef} className='form-control me-2' type='search' placeholder='Search character' aria-label='Search' />
+            <input ref={searchRef} className='form-control me-2' type='search' placeholder='Search product' aria-label='Search' />
             <button className='btn btn-outline-success' type='submit'>🔍</button>
           </form>
         </div>

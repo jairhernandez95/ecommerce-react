@@ -15,13 +15,13 @@ const Search = () => {
           {sms.message} <span>{filterProducts.length}</span>
         </p>
         <section className='row gy-4'>
-          {filterProducts.map((index, key) => (
+          {filterProducts.map((product, key) => (
             <div key={key} className='col-12 col-sm-6 col-md-6 col-lg-3'>
-              <Link to={`/products/product/${index.product_name}`}>
+              <Link to={`/products/product/${product._id}`}>
                 <article className='card'>
-                  <img loading='lazy' className='card-img-top' src={index.image} alt={index.product_name} />
+                  <img loading='lazy' className='card-img-top' src={product.image} alt={product.product_name} />
                   <div className='card-body'>
-                    <p className='card-title'>{index.product_name}</p>
+                    <p className='card-title'>{product.product_name}</p>
                   </div>
                 </article>
               </Link>

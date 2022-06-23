@@ -1,27 +1,28 @@
-import { Link } from 'react-router-dom'
-import useGetDataOfProduct from '../hooks/useGetDataOfProduct'
+// import { useParams } from 'react-router-dom'
+import useFetcher from '../hooks/useFetcher'
 
 const Product = () => {
-  const { listProducts, loading, error } = useGetDataOfProduct(window.location.href.slice(30))
-  if (error) return <p>Error</p>
-  if (loading) {
-    return (
-      <section className='container py-5'>
-        <p>...Loading</p>
-      </section>
-    )
-  }
+  const id = window.location.href.slice(39)
+  const url = `https://ecomerce-master.herokuapp.com/api/v1/item/${id}`
+
+  const {
+    data: product,
+    error
+  } = useFetcher(url)
+
+  if (error) return <p>{error}</p>
 
   return (
-    <section className='container py-5'>
-      <img src={listProducts.image} className='img-thumbnail' />
-      <p>Name: {listProducts.product_name}</p>
-      <button type='button' className='btn btn-primary'>Comprar</button>
-      <button type='button' className='btn btn-warning'>
-        <Link to='/'>Home</Link>
-      </button>
-    </section>
+    <article>
+      <div className='card' style={{ width: '18rem' }}>
+        <img src={product.image} className='card-img-top' alt='...' />
+        <div className='card-body'>
+          <h5 className='card-title'>{product.product_name}</h5>
+          <p className='card-text'>{product.description}</p>
+          <a className='btn btn-primary'>Buy</a>
+        </div>
+      </div>
+    </article>
   )
 }
-
 export default Product
