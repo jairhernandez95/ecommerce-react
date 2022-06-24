@@ -25,7 +25,6 @@ const AuthProvider = ({ children }) => {
     const token = window.localStorage.getItem('token')
     setInit(true)
     // console.log(isValidToken(token))
-
     try {
       if (token && isValidToken(token)) {
         setSession(token)

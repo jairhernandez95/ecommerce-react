@@ -27,13 +27,14 @@ const NavBar = () => {
         <div className='collapse navbar-collapse' id='mainNavBar'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link active' aria-current='page' to='/products'>Home</Link>
+              <Link className='nav-link active' aria-current='page' to='/products'><img src='../src/assets/home.png' className='imageLogo' alt='' /></Link>
             </li>
           </ul>
           <form className='d-flex' onSubmit={handleSubmit}>
             <input ref={searchRef} className='form-control me-2' type='search' placeholder='Search product' aria-label='Search' />
             <button className='btn btn-outline-success' type='submit'>🔍</button>
           </form>
+          <img src='../src/assets/carrito.png' className='imageLogo' alt='' />
         </div>
       </div>
     </nav>
