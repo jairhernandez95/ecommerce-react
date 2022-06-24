@@ -26,6 +26,7 @@ const Products = () => {
               <img loading='lazy' className='card-img-top' src={product.image} alt={product.product_name} />
               <div className='card-body'>
                 <p className='card-title'>{product.product_name}</p>
+                <p>${product.price}.00</p>
               </div>
             </article>
           </Link>
